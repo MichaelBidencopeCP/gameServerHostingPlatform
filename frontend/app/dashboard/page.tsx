@@ -1,9 +1,10 @@
 'use client'
 
-import useUserStore from "../lib/user-store"
+import { useUser } from "../lib/UserContext"
+
 
 export default function Dashboard() {
-    let user = useUserStore((state) => state)
+    let user = useUser()
     let services = {
         "service1": {
             "name": "Service 1",
@@ -68,7 +69,7 @@ export default function Dashboard() {
                     <h1 className="text-2xl font-bold">Dashboard</h1>
                 </div>
                 <div className="col-start-3 flex items-center justify-end">
-                    Credit: {user.credits}
+                    Credit: {user?.credits}
                 </div>
             </div>
             <div className="p-4 ">

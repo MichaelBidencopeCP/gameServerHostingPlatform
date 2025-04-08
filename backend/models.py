@@ -17,3 +17,4 @@ class User(SQLModel, table=True):
     created_at: str = Field(default=datetime.now())
     updated_at: str = Field(default=datetime.now())
     credits: int = Field(default=0)
+    staff: bool = Field(default=False)

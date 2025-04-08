@@ -4,13 +4,14 @@
 import PaymentStart from "@/app/components/paymentStart"
 import {  useEffect, useState } from "react"
 
-import useUserStore from "@/app/lib/user-store"
 import CompletePayment from "@/app/components/completePayment"
 import ErrorBar from "@/app/components/errorBar"
 import PaymentComplete from "@/app/components/paymentComplete"
 import { auth } from "@/app/lib/firebase"
+import { useUser } from "@/app/lib/UserContext"
 
 export default function PaymentsPage() {
+    const user = useUser()
     const [amount, setAmount] = useState(0)
     const [priceStr, setPriceStr] = useState("0.00")
     const [paymentStage, setPaymentStage] = useState(0)
@@ -57,7 +58,6 @@ export default function PaymentsPage() {
         "source": null,
         "status": ""
     })
-    const user = useUserStore((state)=>state)
 
     useEffect(()=>{
         if(paymentCompleteStatus.status == "succeeded"){
@@ -91,9 +91,9 @@ export default function PaymentsPage() {
     }
 
     const confirmCreditAmount = async () => {
-        let token = auth.currentUser?.getIdToken()
-        if(!token){
-            user.clearUser()
+        let token = user?.firebase.getIdToken()
+        if(token == undefined){
+            console.log("No token")
             return
         }
         const response = await fetch('http://localhost:8000/payment/credits', {
@@ -122,9 +122,6 @@ export default function PaymentsPage() {
                 setError(2)
             }
                 
-        }
-        if(response.status === 401){
-            user.clearUser()
         }
         
     }

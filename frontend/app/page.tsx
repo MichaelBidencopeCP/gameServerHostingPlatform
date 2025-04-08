@@ -1,18 +1,16 @@
 'use client'
 
 import Link from "next/link";
-
-import useUserStore from "./lib/user-store";
-
+import { useUser } from "./lib/UserContext";
 
 export default function Home() {
-    let { username, } = useUserStore();
+    let user = useUser();
     return (
         <>
             <Link href="/login">
                 Login
             </Link>
-            {username}
+            {user?.username}
         </>
     );
 

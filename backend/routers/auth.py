@@ -6,7 +6,7 @@ from sqlmodel import select
 
 from ..dependencies import FirebaseUserDep, SessionDep
 from ..models import User
-from ..project_types.auth_types import Signup
+from ..project_types.auth_types import Signup, Credits
 
 router = APIRouter(
     prefix="/auth",
@@ -47,5 +47,15 @@ def signup(user: FirebaseUserDep, session:SessionDep, userInfo:Signup):
     session.add(user)
     session.commit()
     return user
+
+@router.get("/credits")
+def get_credits(user: FirebaseUserDep, session:SessionDep) -> Credits:
+    """
+        Get the credits of the user
+    """
+    credits = select(User.credits).where(User.id == user['uid'])
+    credits = session.exec(credits).first()
+    
+    return Credits(credits=credits)
 
 

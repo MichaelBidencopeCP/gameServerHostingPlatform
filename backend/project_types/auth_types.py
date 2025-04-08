@@ -9,3 +9,9 @@ class Signup(BaseModel):
     first_name: str
     last_name: str
 
+class Credits(BaseModel):
+    '''
+        Pydantic model for user credits
+    '''
+    credits: int
+

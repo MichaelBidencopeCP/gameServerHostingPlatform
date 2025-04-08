@@ -10,6 +10,7 @@ const UserContext = createContext<{
     "username"?: string,
     "firstName"?: string,
     "lastName"?: string,
+    "staff"?: boolean,
 } | null>(null);
 //add loading to the context if load times become a problem
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
@@ -20,12 +21,14 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
         "username"?: string,
         "firstName"?: string,
         "lastName"?: string,
+        "staff"?: boolean,
     } | null>(null);
 
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
             if (firebaseUser) {
+                console.log("User is signed in:", firebaseUser);
                 const token = await firebaseUser.getIdToken();
                 let serverResponse = await fetch('http://localhost:8000/auth/user', {
                     method: 'GET',
@@ -48,6 +51,7 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
                         firstName: returns.firstName,
                         lastName: returns.lastName,
                         credits: returns.credits,
+                        staff: returns.staff,
                     })
                 }
             }
