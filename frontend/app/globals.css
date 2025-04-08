@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #2A3D45;
+  --color-text: #FFFFFF;
+  --color-tone: #30343F;
+  --color-two: #273469;
+  --color-three: #D1603D;
+  --color-three-hover:#D1603D;
+  --color-four: #D1603D;
+}
+@layer base {
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+}
+.body{
+  background-color: var(--color-background);
+  
+  color: var(--color-text);
+
+}
