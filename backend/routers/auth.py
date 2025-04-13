@@ -17,20 +17,22 @@ router = APIRouter(
 @router.get("/user")
 def get_user(user: FirebaseUserDep,session:SessionDep):
     
-    exists = select(User.username, User.first_name, User.last_name, User.credits).where(User.id == user['uid'])
-    signup = session.exec(exists).first()
-    if not signup:
+    exists = select(User.username, User.first_name, User.last_name, User.credits, User.staff).where(User.id == user['uid'])
+    user = session.exec(exists).first()
+    if not user:
         return {
             "message": "finish signup",
             "signup": True
         }
-    user.update({
-        "username": signup.username,
-        "first_name": signup.first_name,
-        "last_name": signup.last_name,
-        "credits": signup.credits
-    })
-    return user
+    return {
+        
+        "username": user.username,
+        "first_name": user.first_name,
+        "last_name": user.last_name,
+        "credits": user.credits,
+        "staff": user.staff
+        
+    }
 
 
 

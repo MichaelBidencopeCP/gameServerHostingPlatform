@@ -17,11 +17,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     const user = useUser()
     const router = useRouter()
     useEffect(() => {
-        if (!user) {
-            router.push('/auth/login')
-        }
-        if (user?.username === undefined) {
-            router.push('/register')
+        if (user !== undefined){
+            if (!user) {
+                router.push('/login')
+            }
+            else if (user?.username === undefined) {
+                router.push('/register') 
+            }
         }
     }, [user])
     

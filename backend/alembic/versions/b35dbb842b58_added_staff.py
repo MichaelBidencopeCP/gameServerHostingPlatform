@@ -1,18 +1,19 @@
-"""first
+"""added staff
 
-Revision ID: 09d8332c1177
+Revision ID: b35dbb842b58
 Revises: 
-Create Date: 2025-04-06 17:18:58.222125
+Create Date: 2025-04-08 20:08:25.863761
 
 """
 from typing import Sequence, Union
 
 from alembic import op
 import sqlalchemy as sa
+import sqlmodel
 
 
 # revision identifiers, used by Alembic.
-revision: str = '09d8332c1177'
+revision: str = 'b35dbb842b58'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -35,6 +36,7 @@ def upgrade() -> None:
     sa.Column('created_at', sqlmodel.sql.sqltypes.AutoString(), nullable=False),
     sa.Column('updated_at', sqlmodel.sql.sqltypes.AutoString(), nullable=False),
     sa.Column('credits', sa.Integer(), nullable=False),
+    sa.Column('staff', sa.Boolean(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_user_username'), 'user', ['username'], unique=False)

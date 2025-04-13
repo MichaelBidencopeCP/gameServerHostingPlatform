@@ -30,7 +30,7 @@ export default function LoginPage() {
     }
 
     useEffect(() => {
-        if (user) {
+        if (user?.firebase) {
             if (user.username === undefined) {
                 router.push('/register')
             }

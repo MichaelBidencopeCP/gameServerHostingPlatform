@@ -17,14 +17,21 @@ export default function TopNavBar() {
             </div>
             <div className="col-start-3 flex items-center justify-end">
                 {user?.username}
+                { user?.staff ? (
+                    <Link href="/staff">
+                        <h1 className="text-xl font-bold ml-2">Staff</h1>
+                    </Link>
+                ) : (
+                    <></>
+                )}
                 { user?.username ? (
                     
                     <Link href="/dashboard">
-                        <h1 className="text-xl font-bold">Dashboard</h1>
+                        <h1 className="text-xl font-bold  ml-2">Dashboard</h1>
                     </Link>
                 ) : (
                     <Link href="/login">
-                        <h1 className="text-xl font-bold">Login</h1>
+                        <h1 className="text-xl font-bold  ml-2">Login</h1>
                     </Link>
                 )}
               
