@@ -4,7 +4,7 @@ from contextlib import asynccontextmanager
 import firebase_admin
 from firebase_admin import credentials
 
-from .routers import test, auth, payments
+from .routers import test, auth, payments, staff, dashboard
 from .database import create_db_and_tables
 
 
@@ -34,6 +34,8 @@ app.add_middleware(
 app.include_router(test.router)
 app.include_router(auth.router)
 app.include_router(payments.router)
+app.include_router(staff.router)
+app.include_router(dashboard.router)
 
 
 
