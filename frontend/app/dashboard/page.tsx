@@ -76,7 +76,7 @@ export default function Dashboard() {
                 <h1 className="text-2xl font-semibold">Popular Services</h1>
                 <div className="flex overflow-x-scroll">
                     {Object.keys(services).map((service) => (
-                        <div key={service} className="bg-two rounded-lg shadow-md ml-2 p-6 h-48 w-48">
+                        <div key={service} className="bg-element hover:bg-element-hover rounded-lg shadow-md ml-2 p-6 h-48 w-48">
                             <h1 className="text-2xl font-semibold text-center">{services[service].name}</h1>
                             <p className="text-center">{services[service].description}</p>
                         </div>

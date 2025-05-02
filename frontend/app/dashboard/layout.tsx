@@ -50,19 +50,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       };
       
     return (
-        <div className="flex overflow-clip">
+        <div className="flex h-screen w-full overflow-hidden">
             {/* Sidebar */}
-            <div className="w-64 ">
+            <div className="w-64 bg-element">
                 <DashboardNav />
             </div>
-            
+
             {/* Main Content */}
-            <div className="h-screen w-full bg-white">
+            <div className="flex-1 bg-background overflow-auto">
                 <Elements stripe={stripe} options={options}>   
-                    {children}
+                {children}
                 </Elements>
             </div>
-
         </div>
+
     )
 }

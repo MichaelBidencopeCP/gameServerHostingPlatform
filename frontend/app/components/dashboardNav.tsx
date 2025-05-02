@@ -7,7 +7,7 @@ export default function DashboardNav() {
 
     return (
 
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col h-full bg-background-2">
             <div className="flex flex-col p-4">
                 <DashboardSidebarItem href="/dashboard" text="Dashboard" />
                 <DashboardSidebarItem href="/dashboard/payments" text="Payments" />

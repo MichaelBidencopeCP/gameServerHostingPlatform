@@ -17,7 +17,7 @@ export default function Button({
         <button
         onClick={onClick}
         type={type}
-        className={`px-4 py-2 bg-three  hover:bg-three-hover disabled:bg-gray-600 text-white rounded ${className}`}
+        className={`px-4 py-2 bg-three  hover:bg-hover bg-accent disabled:bg-background-2 text-white rounded ${className}`}
         disabled={disabled}
         >
         {children}

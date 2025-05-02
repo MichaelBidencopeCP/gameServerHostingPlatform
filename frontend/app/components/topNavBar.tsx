@@ -8,7 +8,7 @@ import { useUser } from '../lib/UserContext';
 export default function TopNavBar() {
     const user = useUser()
     return(
-        <nav className="bg-two text-text">
+        <nav className="bg-two bg-background-2 text-text">
           <div className="grid grid-cols-3 gap-4 p-4">
             <div className="flex items-center">
             <Link href="/">

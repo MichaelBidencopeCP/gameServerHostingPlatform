@@ -6,3 +6,4 @@ venv
 database.db
 firebase-cred.json
 aws-testuser
+/backend/alembic/*
