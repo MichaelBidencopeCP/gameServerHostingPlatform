@@ -9,6 +9,8 @@ import HiddenInput from '@/app/components/hiddenInput'
 import TextInput from '@/app/components/textInput'
 import { useUser } from '@/app/lib/UserContext'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link';
+
 
 export default function LoginPage() {
     const user = useUser()
@@ -42,7 +44,7 @@ export default function LoginPage() {
 
     return (
         <div className="container mx-auto p-4">
-            <div className="max-w-md mx-auto bg-two rounded-lg shadow-md p-6">
+            <div className="max-w-md mx-auto bg-element rounded-lg shadow-md p-6">
                 <h1 className="text-2xl font-bold mb-4">Login</h1>
                 {error && (
                     <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
@@ -56,7 +58,13 @@ export default function LoginPage() {
                     <div className="mb-4">
                         <HiddenInput label="Password" value={password} onChange={setPassword} placeholder="Password" />
                     </div>
-                    <Button type="submit" className="w-full" disabled={!email || !password}>
+                    <p className="text-subtext mb-2">
+                        Don’t have an account?{' '}
+                        <Link href="/register" className="text-accent underline hover:text-accent-hover">
+                            Register!
+                        </Link>
+                    </p>
+                    <Button type="submit" className="w-full disabled:!cursor-default" disabled={!email || !password}>
                         Login
                     </Button>
                 </form>

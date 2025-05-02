@@ -38,7 +38,7 @@ export default function PaymentStart({amount, amountChange, priceStr, priceChang
 
     return(
     
-        <div className={`max-w-md mx-auto bg-gray-500 rounded-lg shadow-md ${classInfo}`} >
+        <div className={`max-w-md mx-auto bg-element rounded-lg shadow-md ${classInfo}`} >
         <div className={`h-full w-full bg-two p-6 rounded-lg`}>
             
                 <h1 className="text-3xl font-semibold text-center">Payments</h1>
@@ -60,7 +60,7 @@ export default function PaymentStart({amount, amountChange, priceStr, priceChang
                         Minimum of 1 credit
                     </div>:''
                 }
-                <Button className="w-full mt-2" onClick={confirm} disabled={amount<1?true:false}>
+                <Button className="w-full mt-2 " onClick={confirm} disabled={amount<1?true:false}>
                     Confirm & Checkout
                 </Button>
             </div>

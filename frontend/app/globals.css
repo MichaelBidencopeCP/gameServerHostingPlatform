@@ -1,13 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #2A3D45;
-  --color-text: #FFFFFF;
-  --color-tone: #30343F;
-  --color-two: #273469;
-  --color-three: #D1603D;
-  --color-three-hover:#D1603D;
-  --color-four: #D1603D;
+  --color-background: #1F2333;
+  --color-background-2: #24293A;
+  --color-element: #35394E;
+  --color-element-hover: #3E425A;
+  --color-text: #E0E0E0;
+  --color-subtext: #B0B0B0;
+  --color-accent: #4A90E2;
+  --color-secondary: #7FB3D5;
+  --color-hover: #5399EB;
+  --color-hover-light: #A1C6E7;
+  --color-link: #357ABD;
 }
 @layer base {
     input[type="number"]::-webkit-inner-spin-button,
@@ -18,7 +22,14 @@
 }
 .body{
   background-color: var(--color-background);
-  
   color: var(--color-text);
 
+}
+
+.button:hover {
+  background-color: var(--color-hover);
+}
+
+a:hover {
+  color: var(--color-link);
 }

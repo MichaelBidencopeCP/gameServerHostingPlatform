@@ -12,7 +12,7 @@ export default function CompletePayment({paymentStage, stripeIntint, setPyamentC
 
     return(
         <>
-            <div className={`max-w-md mx-auto bg-gray-500 rounded-lg shadow-md ${!paymentStage?"hidden":""}`} >
+            <div className={`max-w-md mx-auto bg-element rounded-lg shadow-md ${!paymentStage?"hidden":""}`} >
                 
                 <div className={`h-full w-full bg-two p-6 rounded-lg`}>
                     <h1 className="text-2xl w-full text-center">Payment Method</h1>
