@@ -9,6 +9,8 @@ import HiddenInput from '@/app/components/hiddenInput'
 import TextInput from '@/app/components/textInput'
 import { useUser } from '@/app/lib/UserContext'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link';
+
 
 export default function LoginPage() {
     const user = useUser()
@@ -56,6 +58,12 @@ export default function LoginPage() {
                     <div className="mb-4">
                         <HiddenInput label="Password" value={password} onChange={setPassword} placeholder="Password" />
                     </div>
+                    <p className="text-subtext mb-2">
+                        Don’t have an account?{' '}
+                        <Link href="/register" className="text-accent underline hover:text-accent-hover">
+                            Register!
+                        </Link>
+                    </p>
                     <Button type="submit" className="w-full disabled:!cursor-default" disabled={!email || !password}>
                         Login
                     </Button>
