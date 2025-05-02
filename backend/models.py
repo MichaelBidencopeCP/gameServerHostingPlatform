@@ -45,3 +45,9 @@ class ServiceSecurityGroup(SQLModel, table=True):
     id: str = Field(primary_key=True)
     service_id: int = Field(foreign_key="service.id")
     region: str = Field()
+
+class ServiceAmi(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    ami_id: str = Field()
+    service_id: int = Field(foreign_key="service.id")
+    region: str = Field()
